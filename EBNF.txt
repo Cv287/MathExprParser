@@ -1,0 +1,11 @@
+/* For Standard Parser (in Parser.cs) */
+
+Parse ::= <ParseAddSubBinaryExpression>
+
+ParseAddSubBinaryExpression ::=  <ParseMulDivBinaryExpression> { ('+' | '-') <ParseMulDivBinaryExpression> }
+
+ParseMulDivBinaryExpression ::=  <ParsePrimaryExpression> { ('*' | '/' ) <ParsePrimaryExpression> }
+
+ParsePrimaryExpression ::= <ParseNumberExpression> | <ParseConstantExpression>| <ParseParenthesesExpression>
+
+ParseParenthesesExpression ::= '(' <ParseAddSubBinaryExpression> ')'
